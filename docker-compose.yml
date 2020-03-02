@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
+    hostname: mysql
+    environment:
+      - MYSQL_DATABASE=laravel
+      - MYSQL_ROOT_PASSWORD=example
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=example
+    ports:
+      - "3306:3306"
+    volumes:
+      # - ./src/mysql/my.cnf:/etc/my.cnf:ro
+      - ./data/mysql2:/var/lib/mysql
+      # - ./log/mysql:/var/log/mysql
+      # - ./databaseBackup/mysql:/var/backups/mysql:rw
+    restart: always
+
+  pettycash:
+    container_name: petty_cash
+    build:
+      context: ./src/PHP
+      dockerfile: docker/Dockerfile
+    hostname: petty_cash
+    ports:
+      - "80:80"
+    # volumes:
+    #   - ./configure.conf:/etc/temphawk/configure.conf:ro
+      # - ./src/PHP/docker/php7.2/php.ini:/etc/php/7.2/apache2/php.ini:ro
+    #   - ./src/PHP/docker/docker-entrypoint.sh:/entrypoint.sh:ro
+    #  - ./src/PHP:/var/www/html/TemphawkWeb:rw
+    #   - ./log/temphawk_web01:/var/log/temphawk
+    #   - ./log/temphawk_web01/log:/var/www/html/TemphawkWeb/storage/logs
+    restart: always
+    stdin_open: true
+    tty: true
+    entrypoint: /bin/sh
+
