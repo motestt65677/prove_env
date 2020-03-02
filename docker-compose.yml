@@ -14,7 +14,7 @@ services:
       - "3306:3306"
     volumes:
       # - ./src/mysql/my.cnf:/etc/my.cnf:ro
-      - ./data/mysql2:/var/lib/mysql
+      - ./data/mysql:/var/lib/mysql
       # - ./log/mysql:/var/log/mysql
       # - ./databaseBackup/mysql:/var/backups/mysql:rw
     restart: always
