@@ -11,7 +11,8 @@
 5. php artisan db:seed --class=DatabaseSeeder
 6. php artisan key:generate
 7. service apache2 restart
-
+8. chown -R www-data:www-data ./storage
+9. chown -R www-data:www-data ./bootstrap/cache
 # Change branch
 1. vim ./update.sh
 
