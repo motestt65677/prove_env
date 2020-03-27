@@ -27,13 +27,13 @@ services:
     hostname: petty_cash
     ports:
       - "80:80"
-    # volumes:
+    volumes:
     #   - ./configure.conf:/etc/temphawk/configure.conf:ro
       # - ./src/PHP/docker/php7.2/php.ini:/etc/php/7.2/apache2/php.ini:ro
     #   - ./src/PHP/docker/docker-entrypoint.sh:/entrypoint.sh:ro
     #  - ./src/PHP:/var/www/html/TemphawkWeb:rw
-    #   - ./log/temphawk_web01:/var/log/temphawk
-    #   - ./log/temphawk_web01/log:/var/www/html/TemphawkWeb/storage/logs
+      - ./log/PHP:/var/log/PettyCash
+      - ./log/PHP/log:/var/www/html/PettyCash/storage/logs
     restart: always
     stdin_open: true
     tty: true
