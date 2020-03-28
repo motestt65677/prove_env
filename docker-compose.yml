@@ -13,10 +13,10 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      # - ./src/mysql/my.cnf:/etc/my.cnf:ro
+      - ./src/mysql/my.cnf:/etc/mysql/mysql.conf.d:ro
       - ./data/mysql:/var/lib/mysql
-      # - ./log/mysql:/var/log/mysql
-      # - ./databaseBackup/mysql:/var/backups/mysql:rw
+      - ./log/mysql:/var/log/mysql
+      - ./databaseBackup/mysql:/var/backups/mysql:rw
     restart: always
 
   pettycash:
