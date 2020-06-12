@@ -7,9 +7,9 @@ services:
     hostname: mysql
     environment:
       - MYSQL_DATABASE=laravel
-      - MYSQL_ROOT_PASSWORD=6Eu*76YTU!23uei
+      - MYSQL_ROOT_PASSWORD={some_password}
       - MYSQL_USER=root
-      - MYSQL_PASSWORD=6Eu*76YTU!23uei
+      - MYSQL_PASSWORD={some_password}
     ports:
       - "3306:3306"
     volumes:
